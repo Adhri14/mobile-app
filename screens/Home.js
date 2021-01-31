@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 import {
    View,
    Text,
@@ -10,10 +10,11 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons'
 import { createStackNavigator } from '@react-navigation/stack'
 
-
 const HomeStack = createStackNavigator();
 
+
 const Home = ({ navigation }) => {
+
    return (
       <View style={styles.container}>
          {/* <StatusBar barStyle='light-content' backgroundColor='#009387' /> */}

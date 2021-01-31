@@ -15,8 +15,11 @@ import {
    DrawerContentScrollView,
    DrawerItem
 } from '@react-navigation/drawer';
+import { AuthContext } from '../components/context'
+
 
 export const DrawerContent = (props) => {
+   const { signOut } = React.useContext(AuthContext)
    const [isDarkTheme, setIsDarkTheme] = React.useState(false)
    const toggleTheme = () => {
       setIsDarkTheme(!isDarkTheme);
@@ -29,13 +32,13 @@ export const DrawerContent = (props) => {
                <View style={styles.userInfoSection}>
                   <View style={{ flexDirection: 'row', marginTop: 15 }}>
                      <Avatar.Image
-                        source={require('../assets/profile.jpg')}
+                        source={{ uri: 'https://webprogrammingunpas.com/assets/images/logo-wpu/logo-putih-polos.png' }}
                         size={50}
                         style={{ marginRight: 10 }}
                      />
                      <View >
-                        <Title style={styles.title}>phytaa_448</Title>
-                        <Caption style={styles.caption}>@phytaa_448</Caption>
+                        <Title style={styles.title}>Adhri</Title>
+                        <Caption style={styles.caption}>@daemon_adr</Caption>
                      </View>
                   </View>
                   <View style={styles.row}>
@@ -105,7 +108,7 @@ export const DrawerContent = (props) => {
                   <Icon name='logout-variant' size={size} color={color} />
                )}
                label='Sign Out'
-               onPress={() => { }}
+               onPress={() => { signOut() }}
             />
          </Drawer.Section>
       </View>

@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import Feather from 'react-native-vector-icons/Feather'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import * as Animatable from 'react-native-animatable'
+import { AuthContext } from '../components/context'
 
 const LoginScreen = ({ navigation }) => {
    const [data, setData] = React.useState({
@@ -12,6 +13,8 @@ const LoginScreen = ({ navigation }) => {
       check_textInputChange: false,
       secureTextEntry: true
    })
+
+   const { signIn } = React.useContext(AuthContext)
 
    const textInputChange = (val) => {
       if (val.length !== 0) {
@@ -41,6 +44,10 @@ const LoginScreen = ({ navigation }) => {
          ...data,
          secureTextEntry: !data.secureTextEntry
       })
+   }
+
+   const loginHandle = (email, password) => {
+      signIn(email, password)
    }
 
    return (
@@ -106,8 +113,8 @@ const LoginScreen = ({ navigation }) => {
                </View>
             </View>
             <Text style={[styles.text, styles.textForgot]}>Forgot Password?</Text>
-            <View>
-               <TouchableOpacity>
+            <View style={styles.button}>
+               <TouchableOpacity onPress={() => { loginHandle(data.email, data.password) }}>
                   <LinearGradient colors={['#08d4c4', '#01ab9d']} style={styles.btn}>
                      <Text style={styles.textBtn}>Login</Text>
                   </LinearGradient>
@@ -167,8 +174,7 @@ const styles = StyleSheet.create({
       marginBottom: 20
    },
    button: {
-      alignItems: 'flex-end',
-      marginTop: 30
+      marginTop: 20
    },
    btn: {
       width: '100%',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import {
    View,
    Text,
@@ -10,13 +10,14 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons'
 import { createStackNavigator } from '@react-navigation/stack'
 
+
 const HomeStack = createStackNavigator();
 
 const Home = ({ navigation }) => {
    return (
       <View style={styles.container}>
          {/* <StatusBar barStyle='light-content' backgroundColor='#009387' /> */}
-         <Text style={styles.text}> Muspita Srihandayani</Text>
+         <Text style={styles.text}>Daemon</Text>
          <Button title='Move to Detail Screen' onPress={() => navigation.navigate('DetailScreen')} />
       </View>
    );

@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, Dimensions, Image, StyleSheet, Text, View } from 'react-native'
+import { TouchableOpacity, Dimensions, Image, StyleSheet, Text, View, Asyn } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import * as Animatable from 'react-native-animatable'
@@ -11,7 +11,7 @@ const SplashScreen = ({ navigation }) => {
             <Animatable.Image
                style={styles.logo}
                resizeMode='stretch'
-               source={require('../assets/profile.jpg')}
+               source={{ uri: 'https://webprogrammingunpas.com/assets/images/logo-wpu/logo-putih-polos.png' }}
                animation='bounceIn'
                duration={2500}
             />

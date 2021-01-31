@@ -5,6 +5,7 @@ import Feather from 'react-native-vector-icons/Feather'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import * as Animatable from 'react-native-animatable'
 
+
 const LoginScreen = ({ navigation }) => {
    const [data, setData] = React.useState({
       email: '',
@@ -12,6 +13,8 @@ const LoginScreen = ({ navigation }) => {
       check_textInputChange: false,
       secureTextEntry: true
    })
+
+
 
    const textInputChange = (val) => {
       if (val.length !== 0) {
@@ -138,8 +141,8 @@ const LoginScreen = ({ navigation }) => {
                   </TouchableOpacity>
                </View>
             </View>
-            {/* <Text style={[styles.text, styles.textForgot]}>Forgot Password?</Text> */}
-            <View>
+            <Text style={[styles.text, styles.textForgot]}>By signing up your agree To our <Text style={styles.bold}>Terms of Services</Text> and <Text style={styles.bold}>Privacy Police</Text></Text>
+            <View style={styles.button}>
                <TouchableOpacity>
                   <LinearGradient colors={['#08d4c4', '#01ab9d']} style={styles.btn}>
                      <Text style={styles.textBtn}>Sign Up</Text>
@@ -197,11 +200,11 @@ const styles = StyleSheet.create({
    },
    textForgot: {
       marginTop: 0,
-      marginBottom: 20
+      marginBottom: 20,
+      color: '#999'
    },
    button: {
-      alignItems: 'flex-end',
-      marginTop: 30
+      marginTop: 20
    },
    btn: {
       width: '100%',
@@ -222,5 +225,9 @@ const styles = StyleSheet.create({
    },
    textBtnOutline: {
       color: '#009387',
+   },
+   bold: {
+      color: '#333',
+      fontWeight: 'bold'
    }
 })
